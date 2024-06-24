@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/biologia.png" type="image/x-icon" />
+    <title>O Quiz</title>
+    <style>
+      * {
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        background-color: #344d0e;
+        z-index: 1;
+      }
+      body {
+        font-family: "Sarala", sans-serif;
+        font-weight: 400;
+        color: #ffffff;
+        align-items: center;
+        margin: 3%;
+      }
+      .question {
+        margin-bottom: 2.5%;
+        margin-bottom: #ffffff;
+      }
+      .feedback {
+        margin-top: 1%;
+        font-weight: bold;
+        color: #fc2121;
+      }
+      button {
+        padding: 0.8% 0.5%;
+        margin: 0.5%;
+        cursor: pointer;
+        border: none;
+        border-radius: 4%;
+        font-size: 90%;
+        color: #000000;
+        background-color: #fdf693;
+      }
+      button:hover {
+        background-color: #ffd700;
+      }
+      h1 {
+        font-family: "Sarala", sans-serif;
+        font-weight: 400;
+        font-size: 50px;
+        color: #fdf693;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quiz de Biologia</h1>
+    <br />
+    <br />
+    <div class="question" id="question1">
+      <p>1. Qual é a definição de biologia?</p>
+      <button onclick="checkAnswer(1, 'Estudo das formas de governo')">
+        Estudo das formas de governo
+      </button>
+      <button
+        onclick="checkAnswer(1, 'Ciência que estuda o comportamento humano')"
+      >
+        Ciência que estuda o comportamento humano
+      </button>
+      <button
+        onclick="checkAnswer(1, 'Investigação das células e seus componentes')"
+      >
+        Investigação das células e seus componentes
+      </button>
+      <button
+        onclick="checkAnswer(1, 'Estudo dos seres vivos e seus processos vitais')"
+      >
+        Estudo dos seres vivos e seus processos vitais
+      </button>
+      <div id="feedback1" class="feedback"></div>
+    </div>
+    <div class="question" id="question2">
+      <p>
+        2. Qual é uma das teorias principais sobre a origem da vida na Terra,
+        que postula que moléculas orgânicas essenciais surgiram em condições
+        primitivas da Terra e se combinaram para formar as primeiras formas de
+        vida?
+      </p>
+      <button onclick="checkAnswer(2, 'Criacionismo')">Criacionismo</button>
+      <button onclick="checkAnswer(2, 'Panspermia')">Panspermia</button>
+      <button onclick="checkAnswer(2, 'Teoria do design inteligente')">
+        Teoria do design inteligente
+      </button>
+      <button onclick="checkAnswer(2, 'Teoria da evolução química')">
+        Teoria da evolução química
+      </button>
+      <div id="feedback2" class="feedback"></div>
+    </div>
+    <div class="question" id="question3">
+      <p>
+        3. Qual dos seguintes exemplos ilustra uma relação interespecífica na
+        qual um organismo é beneficiado enquanto o outro não é afetado nem
+        prejudicado?
+      </p>
+      <button onclick="checkAnswer(3, 'Líquens formados por fungos e algas')">
+        Líquens formados por fungos e algas
+      </button>
+      <button onclick="checkAnswer(3, 'Cupins alimentando-se de madeira')">
+        Cupins alimentando-se de madeira
+      </button>
+      <button
+        onclick="checkAnswer(3, 'A relação entre uma orquídea epífita e uma árvore hospedeira')"
+      >
+        A relação entre uma orquídea epífita e uma árvore hospedeira
+      </button>
+      <button
+        onclick="checkAnswer(3, 'O pássaro-palito se alimentando de carrapatos em um mamífero')"
+      >
+        O pássaro-palito se alimentando de carrapatos em um mamífero
+      </button>
+      <div id="feedback3" class="feedback"></div>
+    </div>
+    <div class="question" id="question4">
+      <p>
+        4. Qual organela citoplasmática é responsável pela síntese de proteínas,
+        possui dois subtipos (livre e aderida ao retículo endoplasmático), e
+        desempenha um papel crucial na regulação do metabolismo celular?
+      </p>
+      <button onclick="checkAnswer(4, 'Mitocôndria')">Mitocôndria</button>
+      <button onclick="checkAnswer(4, 'Complexo de Golgi')">
+        Complexo de Golgi
+      </button>
+      <button onclick="checkAnswer(4, 'Lisossomo')">Lisossomo</button>
+      <button onclick="checkAnswer(4, 'Ribossomo')">Ribossomo</button>
+      <div id="feedback4" class="feedback"></div>
+    </div>
+    <div class="question" id="question5">
+      <p>5. Qual processo de transporte não requer gasto de energia celular?</p>
+      <button onclick="checkAnswer(5, 'Transporte Ativo')">
+        Transporte Ativo
+      </button>
+      <button onclick="checkAnswer(5, 'Transporte Passivo')">
+        Transporte Passivo
+      </button>
+      <button onclick="checkAnswer(5, 'Endocitose')">Endocitose</button>
+      <button onclick="checkAnswer(5, 'Exocitose')">Exocitose</button>
+      <div id="feedback5" class="feedback"></div>
+    </div>
+    <div class="question" id="question6">
+      <p>
+        6. Qual dos seguintes elementos químicos é um constituinte fundamental
+        das proteínas e ácidos nucleicos, desempenhando um papel crucial na
+        estrutura e função celular, e é encontrado em grande quantidade na
+        composição química das células?
+      </p>
+      <button onclick="checkAnswer(6, 'Zinco')">Zinco</button>
+      <button onclick="checkAnswer(6, 'Magnésio')">Magnésio</button>
+      <button onclick="checkAnswer(6, 'Potássio')">Potássio</button>
+      <button onclick="checkAnswer(6, 'Nitrogênio')">Nitrogênio</button>
+      <div id="feedback6" class="feedback"></div>
+    </div>
+    <button onclick="submitQuiz()">Enviar Quiz</button>
+    <button onclick="resetQuiz()">Resetar Quiz</button>
+    <script>
+      const correctAnswers = {
+        1: "Estudo dos seres vivos e seus processos vitais",
+        2: "Teoria da evolução química",
+        3: "A relação entre uma orquídea epífita e uma árvore hospedeira",
+        4: "Ribossomo",
+        5: "Transporte Passivo",
+        6: "Nitrogênio",
+      };
+      function checkAnswer(questionNumber, answer) {
+        const feedbackDiv = document.getElementById(
+          "feedback" + questionNumber
+        );
+        const questionDiv = document.getElementById(
+          "question" + questionNumber
+        );
+        const buttons = questionDiv.getElementsByTagName("button");
+        if (answer === correctAnswers[questionNumber]) {
+          feedbackDiv.textContent = "Correto!";
+          feedbackDiv.style.color = "green";
+        } else {
+          feedbackDiv.textContent = `Errado! A resposta correta é ${correctAnswers[questionNumber]}.`;
+          feedbackDiv.style.color = "red";
+        }
+        for (let button of buttons) {
+          button.disabled = true;
+        }
+      }
+      function submitQuiz() {
+        let correctCount = 0;
+        let incorrectCount = 0;
+        for (let i = 1; i <= 6; i++) {
+          const feedbackDiv = document.getElementById("feedback" + i);
+          if (feedbackDiv.textContent.includes("Correto!")) {
+            correctCount++;
+          } else if (feedbackDiv.textContent.includes("Errado!")) {
+            incorrectCount++;
+          }
+        }
+        alert(
+          `Você acertou ${correctCount} de 6 perguntas. Erros: ${incorrectCount}.`
+        );
+      }
+      function resetQuiz() {
+        const feedbackDivs = document.getElementsByClassName("feedback");
+        for (let feedbackDiv of feedbackDivs) {
+          feedbackDiv.textContent = "";
+        }
+        const buttons = document.getElementsByTagName("button");
+        for (let button of buttons) {
+          button.disabled = false;
+        }
+      }
+    </script>
+    <br />
+    <br />
+    <br />
+    <h3>Voltar para a Página Inicial:</h3>
+    <br />
+    <a href="capainicial.html" id="link_bio">
+      <img src="img/bio.png" alt="bio" id="bio" />
+    </a>
+  </body>
+</html>

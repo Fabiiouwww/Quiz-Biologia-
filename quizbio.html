@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/biologia.png" type="image/x-icon">
+<style>
+    
+    *{
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        background-color:#344D0E;
+        z-index: 1;
+    }
+    
+    h1{
+        font-family: 'Sarala', sans-serif;
+        font-weight: 400;
+        font-size:  50px;
+        color:  #fdf693;
+        align-items: center;
+
+    }
+    h3{
+        font-family: 'Sarala', sans-serif;
+    }
+    body{
+        color: #ffffff;
+    }
+    button{
+        padding: 8px 16px;
+        margin: 8px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        color:rgb(0, 0, 0);
+        background-color: #fdf693 ;
+    }
+</style>
+<title>O Quiz</title>
+</head>
+<body>
+<h1>Quiz de Biologia </h1>
+<br>
+<div id="quiz"></div>
+<script>
+    
+   const questions = [
+   {
+    question: "Qual é a definição de biologia?",
+    answers: {
+        a: "Estudo das formas de governo",
+        b: "Ciência que estuda o comportamento humano",
+        c: "Investigação das células e seus componentes",
+        d: "Estudo dos seres vivos e seus processos vitais"
+    },
+    correctAnswer: "d"
+    },
+   {
+    question: "Qual é uma das teorias principais sobre a origem da vida na Terra, que postula que moléculas orgânicas essenciais surgiram em condições primitivas da Terra e se combinaram para formar as primeiras formas de vida?",
+    answers: {
+        a: "Criacionismo",
+        b: "Panspermia",
+        c: "Teoria do design inteligente",
+        d: "Teoria da evolução química"
+    },
+    correctAnswer: "d"
+    },
+       {
+        question: "Qual dos seguintes exemplos ilustra uma relação interespecífica na qual um organismo é beneficiado enquanto o outro não é afetado nem prejudicado?",
+        answers: {
+            a: "Líquens formados por fungos e algas",
+            b: "Cupins alimentando-se de madeira",
+            c: "A relação entre uma orquídea epífita e uma árvore hospedeira",
+            d: "O pássaro-palito se alimentando de carrapatos em um mamífero"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "Qual organela citoplasmática é responsável pela síntese de proteínas, possui dois subtipos (livre e aderida ao retículo endoplasmático), e desempenha um papel crucial na regulação do metabolismo celular?",
+        answers: {
+            a: "Mitocôndria",
+            b: "Complexo de Golgi",
+            c: "Lisossomo",
+            d: "Ribossomo"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "Qual processo de transporte não requer gasto de energia celular?",
+        answers: {
+            a: "Transporte Ativo",
+            b: "Transporte Passivo",
+            c: "Endocitose",
+            d: "Exocitose"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "Qual dos seguintes elementos químicos é um constituinte fundamental das proteínas e ácidos nucleicos, desempenhando um papel crucial na estrutura e função celular, e é encontrado em grande quantidade na composição química das células?",
+        answers: {
+            a: "Zinco",
+            b: "Magnésio",
+            c: "Potássio",
+            d: "Nitrogênio"
+        },
+        correctAnswer: "d"
+    },
+   ];
+   function displayQuestions() {
+       const quizContainer = document.getElementById('quiz');
+       questions.forEach((question, index) => {
+           const questionDiv = document.createElement('div');
+           questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+           for (const option in question.answers) {
+               questionDiv.innerHTML += `<input type="radio" name="question${index}" value="${option}">${question.answers[option]}<br>`;
+           }
+           quizContainer.appendChild(questionDiv);
+       });
+       const submitButton = document.createElement('button');
+       submitButton.textContent = 'Enviar';
+       submitButton.onclick = submitQuiz;
+       quizContainer.appendChild(submitButton);
+     // Adicionando botão de reset
+     const resetButton = document.createElement('button');
+     resetButton.textContent = 'Resetar';
+     resetButton.onclick = resetQuiz;
+     quizContainer.appendChild(resetButton);
+   }
+   function submitQuiz() {
+       let score = 0;
+       questions.forEach((question, index) => {
+           const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+           if (selectedOption && selectedOption.value === question.correctAnswer) {
+               score++;
+           }
+       });
+       alert(`Você acertou ${score} de ${questions.length} perguntas.`);
+   }
+ // Função para resetar o quiz
+ function resetQuiz() {
+       const quizContainer = document.getElementById('quiz');
+       quizContainer.innerHTML = ''; // Limpa o conteúdo do quiz
+       displayQuestions(); // Exibe as perguntas novamente
+   }
+   displayQuestions();
+</script>
+<br>
+<br>
+<br>
+<h3>Voltar para a Página Inicial:</h3>
+<br>
+<a href="capainicial.html" id="link_bio">
+    <img src="img/bio.png" alt="bio" id="bio">
+</a>
+</body>
+</html>

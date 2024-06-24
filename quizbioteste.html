@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/biologia.png" type="image/x-icon">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #344D0E;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display:flexbox;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        max-width: 800px;
+        padding: 20px;
+        background-color: #354f1e;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #fdf693;
+    }
+    .question {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        color: #000000;
+        background-color: #fdf693;
+    }
+    button:hover {
+        background-color: #ffd700;
+    }
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        color: #fdf693;
+    }
+    #link_bio {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+    #bio {
+        max-width: 200px;
+        height: auto;
+    }
+</style>
+<title>O Quiz</title>
+</head>
+<body>
+<div class="container">
+    <h1>Quiz de Biologia</h1>
+    <div id="quiz"></div>
+    <button id="submitBtn">Enviar</button>
+    <button id="resetBtn">Resetar</button>
+
+<h3>Voltar para a Página Inicial:</h3>
+<br>
+<a href="capainicial.html" id="link_bio">
+    <img src="img/bio.png" alt="bio" id="bio">
+</a>
+
+<script>
+    const questions = [
+        {
+            question: "Qual é a definição de biologia?",
+            answers: {
+                a: "Estudo das formas de governo",
+                b: "Ciência que estuda o comportamento humano",
+                c: "Investigação das células e seus componentes",
+                d: "Estudo dos seres vivos e seus processos vitais"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "Qual é uma das teorias principais sobre a origem da vida na Terra, que postula que moléculas orgânicas essenciais surgiram em condições primitivas da Terra e se combinaram para formar as primeiras formas de vida?",
+            answers: {
+                a: "Criacionismo",
+                b: "Panspermia",
+                c: "Teoria do design inteligente",
+                d: "Teoria da evolução química"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "Qual dos seguintes exemplos ilustra uma relação interespecífica na qual um organismo é beneficiado enquanto o outro não é afetado nem prejudicado?",
+            answers: {
+                a: "Líquens formados por fungos e algas",
+                b: "Cupins alimentando-se de madeira",
+                c: "A relação entre uma orquídea epífita e uma árvore hospedeira",
+                d: "O pássaro-palito se alimentando de carrapatos em um mamífero"
+            },
+            correctAnswer: "c"
+        },
+        {
+            question: "Qual organela citoplasmática é responsável pela síntese de proteínas, possui dois subtipos (livre e aderida ao retículo endoplasmático), e desempenha um papel crucial na regulação do metabolismo celular?",
+            answers: {
+                a: "Mitocôndria",
+                b: "Complexo de Golgi",
+                c: "Lisossomo",
+                d: "Ribossomo"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "Qual processo de transporte não requer gasto de energia celular?",
+            answers: {
+                a: "Transporte Ativo",
+                b: "Transporte Passivo",
+                c: "Endocitose",
+                d: "Exocitose"
+            },
+            correctAnswer: "b"
+        },
+        {
+            question: "Qual dos seguintes elementos químicos é um constituinte fundamental das proteínas e ácidos nucleicos, desempenhando um papel crucial na estrutura e função celular, e é encontrado em grande quantidade na composição química das células?",
+            answers: {
+                a: "Zinco",
+                b: "Magnésio",
+                c: "Potássio",
+                d: "Nitrogênio"
+            },
+            correctAnswer: "d"
+        },
+    ];
+
+    function displayQuestions() {
+        const quizContainer = document.getElementById('quiz');
+        questions.forEach((question, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+            for (const option in question.answers) {
+                questionDiv.innerHTML += `<label><input type="radio" name="question${index}" value="${option}">${question.answers[option]}</label>`;
+            }
+            quizContainer.appendChild(questionDiv);
+        });
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', submitQuiz);
+
+        const resetBtn = document.getElementById('resetBtn');
+        resetBtn.addEventListener('click', resetQuiz);
+    }
+
+    function submitQuiz() {
+        let score = 0;
+        questions.forEach((question, index) => {
+            const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+            if (selectedOption && selectedOption.value === question.correctAnswer) {
+                score++;
+            }
+        });
+        alert(`Você acertou ${score} de ${questions.length} perguntas.`);
+    }
+
+    function resetQuiz() {
+        const quizContainer = document.getElementById('quiz');
+        quizContainer.innerHTML = '';
+        displayQuestions();
+    }
+
+    displayQuestions();
+</script>
+</div>
+</body>
+</html>
